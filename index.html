@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn to Tell Time! | 学习看时钟！</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="rainbow">
+    <!-- Celebration overlay -->
+    <div id="celebration-container" class="celebration-container"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 id="app-title">Learn to Tell Time!</h1>
+            <div class="language-toggle">
+                <button id="btn-en" class="lang-btn active" data-lang="en">EN</button>
+                <button id="btn-zh" class="lang-btn" data-lang="zh">中文</button>
+            </div>
+        </header>
+
+        <!-- Theme Selector -->
+        <section class="theme-selector">
+            <button class="theme-btn active" data-theme="rainbow" title="Rainbow">🌈</button>
+            <button class="theme-btn" data-theme="space" title="Space">🚀</button>
+            <button class="theme-btn" data-theme="ocean" title="Ocean">🌊</button>
+            <button class="theme-btn" data-theme="garden" title="Garden">🌸</button>
+            <button class="theme-btn" data-theme="safari" title="Safari">🦁</button>
+        </section>
+
+        <!-- Main Clock Area -->
+        <main class="clock-area">
+            <div class="clock-container">
+                <!-- SVG Clock -->
+                <svg id="clock" viewBox="0 0 200 200" class="clock-svg">
+                    <!-- Clock face -->
+                    <circle cx="100" cy="100" r="95" class="clock-face" />
+                    <circle cx="100" cy="100" r="90" class="clock-inner" />
+                    
+                    <!-- Minute markers -->
+                    <g class="minute-markers" id="minute-markers"></g>
+                    
+                    <!-- Hour markers and numbers -->
+                    <g class="hour-markers" id="hour-markers"></g>
+                    
+                    <!-- Clock hands -->
+                    <line id="hour-hand" class="hour-hand" x1="100" y1="100" x2="100" y2="50" />
+                    <line id="minute-hand" class="minute-hand" x1="100" y1="100" x2="100" y2="25" />
+                    
+                    <!-- Center pin -->
+                    <circle cx="100" cy="100" r="6" class="center-pin" />
+                    
+                    <!-- Invisible drag areas for hands -->
+                    <line id="hour-hand-drag" class="hand-drag-area" x1="100" y1="100" x2="100" y2="50" />
+                    <line id="minute-hand-drag" class="hand-drag-area" x1="100" y1="100" x2="100" y2="25" />
+                </svg>
+            </div>
+
+            <div class="time-display">
+                <div id="digital-time" class="digital-time">12:00</div>
+                <div id="time-words" class="time-words">twelve o'clock</div>
+                <div id="time-words-alt" class="time-words-alt">十二点整</div>
+            </div>
+        </main>
+
+        <!-- Mode Selector -->
+        <section class="mode-selector">
+            <button id="mode-play" class="mode-btn active" data-mode="play">
+                <span class="mode-icon">🎮</span>
+                <span class="mode-label" data-i18n="play">Play</span>
+            </button>
+            <button id="mode-quiz" class="mode-btn" data-mode="quiz">
+                <span class="mode-icon">❓</span>
+                <span class="mode-label" data-i18n="quiz">Quiz</span>
+            </button>
+            <button id="mode-practice" class="mode-btn" data-mode="practice">
+                <span class="mode-icon">✏️</span>
+                <span class="mode-label" data-i18n="practice">Practice</span>
+            </button>
+        </section>
+
+        <!-- Level Selector -->
+        <section class="level-selector">
+            <div class="level-label" data-i18n="level">Level:</div>
+            <div class="level-buttons">
+                <button class="level-btn active" data-level="1" title="Hours only">
+                    <span class="level-stars">⭐</span>
+                    <span class="level-name" data-i18n="levelHours">Hours</span>
+                </button>
+                <button class="level-btn" data-level="2" title="Half hours">
+                    <span class="level-stars">⭐⭐</span>
+                    <span class="level-name" data-i18n="levelHalf">Half</span>
+                </button>
+                <button class="level-btn" data-level="3" title="Quarter hours">
+                    <span class="level-stars">⭐⭐⭐</span>
+                    <span class="level-name" data-i18n="levelQuarter">Quarter</span>
+                </button>
+                <button class="level-btn" data-level="4" title="5-minute intervals">
+                    <span class="level-stars">⭐⭐⭐⭐</span>
+                    <span class="level-name" data-i18n="levelFive">5-min</span>
+                </button>
+                <button class="level-btn" data-level="5" title="Any minute">
+                    <span class="level-stars">⭐⭐⭐⭐⭐</span>
+                    <span class="level-name" data-i18n="levelAny">Any</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Game Area -->
+        <section class="game-area">
+            <!-- Play Mode Content -->
+            <div id="play-content" class="mode-content active">
+                <p class="instruction" data-i18n="playInstruction">Drag the clock hands to explore different times!</p>
+            </div>
+
+            <!-- Quiz Mode Content -->
+            <div id="quiz-content" class="mode-content">
+                <p class="question" data-i18n="whatTime">What time is it?</p>
+                <div id="quiz-options" class="quiz-options">
+                    <!-- Options will be generated by JS -->
+                </div>
+            </div>
+
+            <!-- Practice Mode Content -->
+            <div id="practice-content" class="mode-content">
+                <p class="instruction">
+                    <span data-i18n="setClockTo">Set the clock to:</span>
+                    <strong id="target-time">3:30</strong>
+                    <span id="target-time-words">(half past three)</span>
+                </p>
+                <div class="practice-buttons">
+                    <button id="btn-check" class="action-btn check-btn" data-i18n="checkAnswer">Check!</button>
+                    <button id="btn-hint" class="action-btn hint-btn" data-i18n="hint">Hint 💡</button>
+                </div>
+            </div>
+
+            <!-- Feedback Area -->
+            <div id="feedback" class="feedback hidden">
+                <span id="feedback-text"></span>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <footer class="stats-bar">
+            <div class="stat">
+                <span class="stat-icon">🔥</span>
+                <span class="stat-label" data-i18n="streak">Streak:</span>
+                <span id="stat-streak" class="stat-value">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">⭐</span>
+                <span class="stat-label" data-i18n="score">Score:</span>
+                <span id="stat-score" class="stat-value">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">🏆</span>
+                <span class="stat-label" data-i18n="best">Best:</span>
+                <span id="stat-best" class="stat-value">0</span>
+            </div>
+        </footer>
+
+        <!-- Level Unlock Modal -->
+        <div id="unlock-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-icon">🎉</div>
+                <h2 id="unlock-title" data-i18n="levelUnlocked">Level Unlocked!</h2>
+                <p id="unlock-message"></p>
+                <div class="modal-buttons">
+                    <button id="btn-stay" class="modal-btn" data-i18n="stayHere">Stay Here</button>
+                    <button id="btn-try-new" class="modal-btn primary" data-i18n="tryNewLevel">Try New Level!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

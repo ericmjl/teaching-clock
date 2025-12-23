@@ -1,0 +1,948 @@
+/* ==========================================
+   TEACHING CLOCK - STYLES
+   ========================================== */
+
+/* CSS Custom Properties (Default: Rainbow Theme) */
+:root {
+    /* Rainbow Theme (Default) */
+    --clock-face: #ffffff;
+    --clock-border: #ff6b6b;
+    --clock-inner: #fff9f0;
+    --hour-hand: #e63946;
+    --minute-hand: #457b9d;
+    --center-pin: #1d3557;
+    --hour-markers: #333333;
+    --minute-markers: #cccccc;
+    --background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+    --primary: #ff6b6b;
+    --secondary: #4ecdc4;
+    --accent: #ffe66d;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --button-bg: #ffffff;
+    --button-active: #ff6b6b;
+    --success: #00b894;
+    --celebration-colors: #ff6b6b, #ffe66d, #4ecdc4, #a29bfe, #fd79a8;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 50%;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ==========================================
+   THEME: SPACE
+   ========================================== */
+[data-theme="space"] {
+    --clock-face: #1a1a2e;
+    --clock-border: #ffd700;
+    --clock-inner: #16213e;
+    --hour-hand: #ffd700;
+    --minute-hand: #c0c0c0;
+    --center-pin: #ffd700;
+    --hour-markers: #ffffff;
+    --minute-markers: #4a4a6a;
+    --background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --primary: #ffd700;
+    --secondary: #9d4edd;
+    --accent: #00d9ff;
+    --text: #ffffff;
+    --text-light: #a0a0c0;
+    --card-bg: rgba(26, 26, 46, 0.9);
+    --button-bg: #16213e;
+    --button-active: #ffd700;
+    --success: #00ff88;
+    --celebration-colors: #ffd700, #00d9ff, #9d4edd, #ff6b9d, #00ff88;
+}
+
+/* ==========================================
+   THEME: OCEAN
+   ========================================== */
+[data-theme="ocean"] {
+    --clock-face: #e8f4f8;
+    --clock-border: #0077b6;
+    --clock-inner: #caf0f8;
+    --hour-hand: #03045e;
+    --minute-hand: #0077b6;
+    --center-pin: #ff6b6b;
+    --hour-markers: #03045e;
+    --minute-markers: #90e0ef;
+    --background: linear-gradient(180deg, #caf0f8 0%, #90e0ef 50%, #48cae4 100%);
+    --primary: #0077b6;
+    --secondary: #00b4d8;
+    --accent: #ff6b6b;
+    --text: #03045e;
+    --text-light: #0077b6;
+    --card-bg: rgba(202, 240, 248, 0.9);
+    --button-bg: #caf0f8;
+    --button-active: #0077b6;
+    --success: #00b894;
+    --celebration-colors: #0077b6, #00b4d8, #48cae4, #ff6b6b, #90e0ef;
+}
+
+/* ==========================================
+   THEME: GARDEN
+   ========================================== */
+[data-theme="garden"] {
+    --clock-face: #fefae0;
+    --clock-border: #bc6c25;
+    --clock-inner: #faedcd;
+    --hour-hand: #606c38;
+    --minute-hand: #283618;
+    --center-pin: #dda15e;
+    --hour-markers: #283618;
+    --minute-markers: #d4c4a8;
+    --background: linear-gradient(180deg, #d4edda 0%, #c3e6cb 50%, #a8d5a2 100%);
+    --primary: #606c38;
+    --secondary: #bc6c25;
+    --accent: #ffb7c5;
+    --text: #283618;
+    --text-light: #606c38;
+    --card-bg: rgba(254, 250, 224, 0.95);
+    --button-bg: #fefae0;
+    --button-active: #606c38;
+    --success: #2d6a4f;
+    --celebration-colors: #ffb7c5, #606c38, #dda15e, #ffd6e0, #c3e6cb;
+}
+
+/* ==========================================
+   THEME: SAFARI
+   ========================================== */
+[data-theme="safari"] {
+    --clock-face: #faf0e6;
+    --clock-border: #d4a373;
+    --clock-inner: #faedcd;
+    --hour-hand: #774936;
+    --minute-hand: #6c584c;
+    --center-pin: #bc6c25;
+    --hour-markers: #3d2914;
+    --minute-markers: #ddb892;
+    --background: linear-gradient(180deg, #ffe8d6 0%, #ddbea9 50%, #cb997e 100%);
+    --primary: #bc6c25;
+    --secondary: #6c584c;
+    --accent: #a7c957;
+    --text: #3d2914;
+    --text-light: #6c584c;
+    --card-bg: rgba(250, 240, 230, 0.95);
+    --button-bg: #faedcd;
+    --button-active: #bc6c25;
+    --success: #6a994e;
+    --celebration-colors: #bc6c25, #a7c957, #d4a373, #6c584c, #ffe8d6;
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    transition: background var(--transition-slow);
+}
+
+/* ==========================================
+   APP CONTAINER
+   ========================================== */
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.header h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.language-toggle {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.lang-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 2px solid var(--primary);
+    background: var(--button-bg);
+    color: var(--primary);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.lang-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* ==========================================
+   THEME SELECTOR
+   ========================================== */
+.theme-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-btn {
+    width: 48px;
+    height: 48px;
+    border: 3px solid transparent;
+    background: var(--button-bg);
+    border-radius: var(--radius-full);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-btn.active {
+    border-color: var(--primary);
+    transform: scale(1.15);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   CLOCK AREA
+   ========================================== */
+.clock-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 500px) {
+    .clock-area {
+        display: grid;
+        grid-template-columns: 220px 220px;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+    }
+}
+
+.clock-container {
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.clock-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    cursor: grab;
+}
+
+.clock-svg:active {
+    cursor: grabbing;
+}
+
+/* Clock face */
+.clock-face {
+    fill: var(--clock-border);
+}
+
+.clock-inner {
+    fill: var(--clock-face);
+}
+
+/* Hour markers */
+.hour-marker-line {
+    stroke: var(--hour-markers);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.hour-number {
+    fill: var(--hour-markers);
+    font-size: 14px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Minute markers */
+.minute-marker {
+    stroke: var(--minute-markers);
+    stroke-width: 1;
+    stroke-linecap: round;
+}
+
+/* Clock hands */
+.hour-hand {
+    stroke: var(--hour-hand);
+    stroke-width: 6;
+    stroke-linecap: round;
+    transform-origin: 100px 100px;
+    transition: stroke-width 0.15s ease;
+}
+
+.minute-hand {
+    stroke: var(--minute-hand);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transform-origin: 100px 100px;
+    transition: stroke-width 0.15s ease;
+}
+
+.center-pin {
+    fill: var(--center-pin);
+}
+
+/* Invisible drag areas - kept for compatibility but not primary interaction */
+.hand-drag-area {
+    stroke: transparent;
+    stroke-width: 20;
+    stroke-linecap: round;
+    pointer-events: none;
+    transform-origin: 100px 100px;
+}
+
+/* Hand highlight for hints */
+.hour-hand.hint,
+.minute-hand.hint {
+    animation: pulse-hint 0.5s ease-in-out 3;
+}
+
+@keyframes pulse-hint {
+    0%, 100% { stroke-width: 6; opacity: 1; }
+    50% { stroke-width: 10; opacity: 0.7; }
+}
+
+.minute-hand.hint {
+    animation-name: pulse-hint-minute;
+}
+
+@keyframes pulse-hint-minute {
+    0%, 100% { stroke-width: 4; opacity: 1; }
+    50% { stroke-width: 8; opacity: 0.7; }
+}
+
+/* Time display */
+.time-display {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 220px;
+    overflow: hidden;
+}
+
+.time-display.hidden {
+    visibility: hidden;
+}
+
+.digital-time {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+.time-words {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 500;
+    min-height: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time-words-alt {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    min-height: 1.4em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================
+   MODE SELECTOR
+   ========================================== */
+.mode-selector {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.mode-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid transparent;
+    background: var(--button-bg);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.mode-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.mode-btn.active {
+    background: var(--button-active);
+    color: white;
+    border-color: var(--button-active);
+}
+
+.mode-icon {
+    font-size: 1.5rem;
+}
+
+.mode-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* ==========================================
+   LEVEL SELECTOR
+   ========================================== */
+.level-selector {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.level-label {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.level-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.level-btn {
+    flex: 1;
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 2px solid transparent;
+    background: var(--button-bg);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.75rem;
+}
+
+.level-btn:hover:not(.locked) {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.level-btn.active {
+    background: var(--button-active);
+    color: white;
+    border-color: var(--button-active);
+}
+
+.level-btn.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.level-stars {
+    font-size: 0.875rem;
+}
+
+.level-name {
+    font-weight: 600;
+}
+
+/* ==========================================
+   GAME AREA
+   ========================================== */
+.game-area {
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 150px;
+}
+
+.mode-content {
+    display: none;
+    text-align: center;
+}
+
+.mode-content.active {
+    display: block;
+    animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.instruction {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: var(--spacing-md);
+}
+
+.question {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Quiz options */
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.quiz-option {
+    padding: var(--spacing-md);
+    border: 3px solid var(--primary);
+    background: var(--button-bg);
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.quiz-option:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.quiz-option.correct {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+    animation: bounce 0.5s ease;
+}
+
+.quiz-option.incorrect {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Practice mode */
+.practice-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.action-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.check-btn {
+    background: var(--success);
+    color: white;
+}
+
+.check-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.hint-btn {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.hint-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* Feedback */
+.feedback {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    font-weight: 700;
+    animation: fadeIn var(--transition-normal);
+}
+
+.feedback.success {
+    background: rgba(0, 184, 148, 0.2);
+    color: var(--success);
+}
+
+.feedback.error {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+/* ==========================================
+   STATS BAR
+   ========================================== */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-md);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.stat-icon {
+    font-size: 1.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ==========================================
+   MODAL
+   ========================================== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn var(--transition-normal);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: var(--shadow-lg);
+    animation: scaleIn var(--transition-normal);
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-content p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--primary);
+    background: var(--button-bg);
+    color: var(--primary);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+}
+
+.modal-btn.primary {
+    background: var(--primary);
+    color: white;
+}
+
+/* ==========================================
+   CELEBRATION CONTAINER
+   ========================================== */
+.celebration-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2000;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.star-particle {
+    position: absolute;
+    font-size: 2rem;
+    animation: star-fall linear forwards;
+}
+
+@keyframes star-fall {
+    0% {
+        transform: translateY(-20px) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        transform: translateY(10vh) scale(1) rotate(72deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(0.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Theme-specific celebration elements */
+[data-theme="space"] .star-particle::after {
+    content: "⭐";
+}
+
+[data-theme="ocean"] .star-particle::after {
+    content: "🐠";
+}
+
+[data-theme="garden"] .star-particle::after {
+    content: "🦋";
+}
+
+[data-theme="safari"] .star-particle::after {
+    content: "🐾";
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 400px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .header h1 {
+        font-size: 1rem;
+    }
+    
+    .clock-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .digital-time {
+        font-size: 2.5rem;
+    }
+    
+    .quiz-options {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .quiz-option {
+        padding: var(--spacing-sm);
+        font-size: 1rem;
+    }
+}
+
+/* Large screens */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 700px;
+    }
+    
+    .clock-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .digital-time {
+        font-size: 3.5rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --clock-face: #ffffff;
+        --hour-hand: #000000;
+        --minute-hand: #000000;
+        --hour-markers: #000000;
+    }
+}
